@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiwa Hair | Wigs, Attachment & Accessories</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#fffaf2;
+  color:#24190b;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#fffaf2;
+  border-bottom:1px solid #eadfc8;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 15px;
+  gap:15px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#b8860b;
+  font-weight:bold;
+  font-size:21px;
+}
+
+.logo img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+  border-radius:50%;
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#24190b;
+  font-weight:bold;
+}
+
+.cart{
+  border:0;
+  background:#21170b;
+  color:white;
+  padding:12px 16px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.hero{
+  padding:55px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#fffaf2,#f5e5b8);
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:55px;
+}
+
+.hero h1 span{
+  color:#b8860b;
+}
+
+.hero p{
+  color:#756b5b;
+  font-size:18px;
+  margin:15px auto;
+  max-width:600px;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  background:#b8860b;
+  color:white;
+  padding:13px 22px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:45px 15px;
+}
+
+h2{
+  font-family:Georgia,serif;
+  font-size:35px;
+  margin-bottom:20px;
+}
+
+.alphabet{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:30px;
+}
+
+.letter{
+  border:1px solid #c9aa62;
+  background:white;
+  color:#76570a;
+  width:38px;
+  height:38px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.letter:hover,
+.letter.active{
+  background:#b8860b;
+  color:white;
+}
+
+.categories{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+
+.category{
+  border:1px solid #d5c093;
+  background:white;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.category.active{
+  background:#21170b;
+  color:white;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border:1px solid #eadfc8;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 7px 20px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:#f3ead5;
+}
+
+.info{
+  padding:15px;
+}
+
+.badge{
+  display:inline-block;
+  background:#f7edcf;
+  color:#76570a;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.info h3{
+  margin:10px 0;
+  font-size:16px;
+}
+
+.price{
+  color:#b8860b;
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.add{
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:10px;
+  background:#21170b;
+  color:white;
+  cursor:pointer;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:#fffaf2;
+  width:100%;
+  max-width:700px;
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.modal-box img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:15px;
+  border:0;
+  background:#21170b;
+  color:white;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.modal-box h2{
+  margin-top:30px;
+  font-size:27px;
+}
+
+.modal-buttons button{
+  width:100%;
+  margin-top:10px;
+}
+
+.drawer{
+  position:fixed;
+  right:-420px;
+  top:0;
+  width:min(400px,92vw);
+  height:100vh;
+  background:white;
+  z-index:200;
+  padding:20px;
+  box-shadow:-10px 0 30px rgba(0,0,0,.2);
+  transition:.3s;
+  overflow:auto;
+}
+
+.drawer.open{
+  right:0;
+}
+
+.drawer-close{
+  float:right;
+  border:0;
+  background:#eee;
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:15px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:28px;
+  z-index:60;
+}
+
+footer{
+  background:#1c1308;
+  color:white;
+  padding:30px 15px;
+  text-align:center;
+}
+
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:650px){
+  nav{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .card img{
+    height:170px;
+  }
+
+  .info{
+    padding:11px;
+  }
+
+  .modal-box{
+    grid-template-columns:1fr;
+    max-height:90vh;
+    overflow:auto;
+  }
+
+  .modal-box img{
+    height:250px;
+  }
+}
+
+@media(max-width:380px){
+  .products{
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<a href="#" class="logo">
+<img src="YOUR_LOGO_URL_HERE" alt="Tiwa Hair Logo">
+TIWA HAIR
+</a>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#about">About</a>
+</nav>
+
+<button class="cart" onclick="openCart()">
+🛍️ Cart (<span id="cartCount">0</span>)
+</button>
+
+</div>
+</header>
+
+<section class="hero" id="home">
+
+<h1>TIWA <span>HAIR</span></h1>
+
+<p>
+Premium wigs, attachment hair and beautiful hair accessories.
+Find your perfect crown today.
+</p>
+
+<a href="#shop" class="btn">Shop Now</a>
+
+</section>
+
+<section class="container" id="shop">
+
+<h2>Shop Tiwa Hair</h2>
+
+<div class="alphabet" id="alphabet"></div>
+
+<div class="categories">
+<button class="category active" onclick="setCategory('All',this)">All</button>
+<button class="category" onclick="setCategory('Wigs',this)">👑 Wigs</button>
+<button class="category" onclick="setCategory('Attachment',this)">💇🏽‍♀️ Attachment</button>
+<button class="category" onclick="setCategory('Accessories',this)">✨ Accessories</button>
+</div>
+
+<div class="products" id="products"></div>
+
+</section>
+
+<section class="container" id="about">
+
+<h2>About Tiwa Hair</h2>
+
+<p>
+Tiwa Hair provides wigs, attachment hair and hair accessories
+for customers looking for beautiful and affordable hair products.
+</p>
+
+</section>
+
+<a class="whatsapp"
+href="https://wa.me/2349112650348"
+target="_blank">
+💬
+</a>
+
+<div class="modal" id="productModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeProduct()">✕</button>
+
+<img id="modalImage" src="" alt="">
+
+<div>
+
+<span class="badge" id="modalCategory"></span>
+
+<h2 id="modalName"></h2>
+
+<div class="price" id="modalPrice"></div>
+
+<p>
+Nigeria market-reference price. Price may change depending
+on quality, length, colour and supplier.
+</p>
+
+<div class="modal-buttons">
+
+<button class="btn" id="modalCart">
+🛍️ Add To Cart
+</button>
+
+<button class="btn" id="modalWhatsApp">
+💬 Order On WhatsApp
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="drawer" id="cartDrawer">
+
+<button class="drawer-close" onclick="closeCart()">✕</button>
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3>
+Total: ₦<span id="cartTotal">0</span>
+</h3>
+
+<button class="btn"
+style="width:100%;margin-top:15px"
+onclick="checkout()">
+Order On WhatsApp
+</button>
+
+</div>
+
+<footer>
+
+<h3>TIWA HAIR</h3>
+
+<p>Wigs • Attachment • Hair Accessories</p>
+
+<p>© 2026 Tiwa Hair</p>
+
+</footer>
+
+<script>
+
+/* ===================================
+   PRODUCTS
+   Add more products inside this list.
+=================================== */
+
+const products = [
+
+{
+name:"Body Wave Wig 18in",
+category:"Wigs",
+price:22000,
+image:"https://images.pexels.com/photos/14730865/pexels-photo-14730865.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Bone Straight Wig 20in",
+category:"Wigs",
+price:30000,
+image:"https://images.pexels.com/photos/6923469/pexels-photo-6923469.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Deep Wave Frontal Wig",
+category:"Wigs",
+price:30000,
+image:"https://images.pexels.com/photos/16234990/pexels-photo-16234990.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"HD Lace Frontal Wig",
+category:"Wigs",
+price:28000,
+image:"https://images.pexels.com/photos/13221802/pexels-photo-13221802.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Kinky Straight Wig",
+category:"Wigs",
+price:25000,
+image:"https://images.pexels.com/photos/15868319/pexels-photo-15868319.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"5x5 Closure Wig",
+category:"Wigs",
+price:26000,
+image:"https://images.pexels.com/photos/35150126/pexels-photo-35150126.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"X-pression Rich Braid",
+category:"Attachment",
+price:8500,
+image:"https://images.pexels.com/photos/14730874/pexels-photo-14730874.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"X-pression Super Braid",
+category:"Attachment",
+price:12000,
+image:"https://images.pexels.com/photos/14730867/pexels-photo-14730867.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"French Curl Attachment",
+category:"Attachment",
+price:15500,
+image:"https://images.pexels.com/photos/29824659/pexels-photo-29824659.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Crochet Braid",
+category:"Attachment",
+price:6000,
+image:"https://images.pexels.com/photos/29824661/pexels-photo-29824661.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Satin Hair Bonnet",
+category:"Accessories",
+price:1999,
+image:"https://images.pexels.com/photos/12471823/pexels-photo-12471823.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Detangling Hair Brush",
+category:"Accessories",
+price:3500,
+image:"https://images.pexels.com/photos/8100358/pexels-photo-8100358.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Butterfly Hair Clips",
+category:"Accessories",
+price:2299,
+image:"https://images.pexels.com/photos/10284733/pexels-photo-10284733.jpeg?auto=compress&cs=tinysrgb&w=700"
+},
+
+{
+name:"Professional Comb Set",
+category:"Accessories",
+price:3600,
+image:"https://images.pexels.com/photos/36874594/pexels-photo-36874594.jpeg?auto=compress&cs=tinysrgb&w=700"
+}
+
+];
+
+/* ===================================
+   APP
+=================================== */
+
+let currentLetter="All";
+let currentCategory="All";
+let cart=[];
+
+const money = number =>
+number.toLocaleString("en-NG");
+
+function createAlphabet(){
+
+const letters=["All",..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+
+document.getElementById("alphabet").innerHTML =
+letters.map(letter=>`
+
+<button
+class="letter ${letter==="All"?"active":""}"
+onclick="setLetter('${letter}',this)">
+${letter}
+</button>
+
+`).join("");
+
+}
+
+function setLetter(letter,button){
+
+currentLetter=letter;
+
+document
+.querySelectorAll(".letter")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+renderProducts();
+
+}
+
+function setCategory(category,button){
+
+currentCategory=category;
+
+document
+.querySelectorAll(".category")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+renderProducts();
+
+}
+
+function renderProducts(){
+
+let list=products.filter(product=>{
+
+const letterOK =
+currentLetter==="All" ||
+product.name.toUpperCase().startsWith(currentLetter);
+
+const categoryOK =
+currentCategory==="All" ||
+product.category===currentCategory;
+
+return letterOK && categoryOK;
+
+});
+
+if(list.length===0){
+
+document.getElementById("products").innerHTML=`
+<p style="grid-column:1/-1;text-align:center;padding:40px">
+No products found for this letter.
+</p>`;
+
+return;
+
+}
+
+document.getElementById("products").innerHTML=
+
+list.map((product)=>{
+
+const index=products.indexOf(product);
+
+return `
+
+<article class="card"
+onclick="openProduct(${index})">
+
+<img
+src="${product.image}"
+alt="${product.name}"
+loading="lazy">
+
+<div class="info">
+
+<span class="badge">
+${product.category}
+</span>
+
+<h3>${product.name}</h3>
+
+<div class="price">
+₦${money(product.price)}
+</div>
+
+<button
+class="add"
+onclick="event.stopPropagation();addCart(${index})">
+🛍️ Add To Cart
+</button>
+
+</div>
+
+</article>
+
+`;
+
+}).join("");
+
+}
+
+function openProduct(index){
+
+const product=products[index];
+
+document.getElementById("modalImage").src=product.image;
+document.getElementById("modalName").textContent=product.name;
+document.getElementById("modalCategory").textContent=product.category;
+document.getElementById("modalPrice").textContent="₦"+money(product.price);
+
+document.getElementById("modalCart").onclick=()=>{
+addCart(index);
+closeProduct();
+};
+
+document.getElementById("modalWhatsApp").onclick=()=>{
+
+const message=
+`Hello Tiwa Hair! I want to order:
+
+${product.name}
+
+Price: ₦${money(product.price)}`;
+
+window.open(
+"https://wa.me/2349112650348?text="+
+encodeURIComponent(message),
+"_blank"
+);
+
+};
+
+document
+.getElementById("productModal")
+.classList.add("show");
+
+}
+
+function closeProduct(){
+
+document
+.getElementById("productModal")
+.classList.remove("show");
+
+}
+
+function addCart(index){
+
+cart.push(products[index]);
+
+updateCart();
+
+}
+
+function updateCart(){
+
+document.getElementById("cartCount").textContent=cart.length;
+
+if(cart.length===0){
+
+document.getElementById("cartItems").innerHTML=
+"<p>Your cart is empty.</p>";
+
+document.getElementById("cartTotal").textContent="0";
+
+return;
+
+}
+
+document.getElementById("cartItems").innerHTML=
+
+cart.map((product,index)=>`
+
+<div class="cart-item">
+
+<div>
+<b>${product.name}</b>
+<br>
+₦${money(product.price)}
+</div>
+
+<button
+onclick="removeCart(${index})">
+Remove
+</button>
+
+</div>
+
+`).join("");
+
+const total=cart.reduce(
+(sum,product)=>sum+product.price,0
+);
+
+document.getElementById("cartTotal").textContent=
+money(total);
+
+}
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+function openCart(){
+
+document
+.getElementById("cartDrawer")
+.classList.add("open");
+
+}
+
+function closeCart(){
+
+document
+.getElementById("cartDrawer")
+.classList.remove("open");
+
+}
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+let message=
+"Hello Tiwa Hair! I want to order:%0A%0A";
+
+cart.forEach(product=>{
+
+message+=
+"- "+product.name+
+" — ₦"+money(product.price)+
+"%0A";
+
+});
+
+const total=cart.reduce(
+(sum,product)=>sum+product.price,0
+);
+
+message+=
+"%0ATotal: ₦"+
+money(total);
+
+window.open(
+"https://wa.me/2349112650348?text="+
+message,
+"_blank"
+);
+
+}
+
+createAlphabet();
+renderProducts();
+updateCart();
+
+</script>
+
+</body>
+</html>
